@@ -1,5 +1,130 @@
 window.onload = function () {
   console.log("(1)");
+  /* SOME  POPULAR USEFULL ARRAY METHODS :--- */
+  var arr = ["a", "b", "c", "d"];
+  // push()
+  arr.push("e");
+  console.log(arr); //(5) ["a", "b", "c", "d", "e"]
+  var arr2 = ["g", "q"];
+  // concat()
+  console.log(arr.concat(arr2)); //(7) ["a", "b", "c", "d", "e", "g", "q"]
+  // join()
+  console.log(arr.join("!")); //a!b!c!d!e
+  console.log(arr); //(5) ["a", "b", "c", "d", "e"]
+  // reverse()
+  console.log(arr.reverse()); //(5) ["e", "d", "c", "b", "a"]
+  console.log(arr); //(5) ["e", "d", "c", "b", "a"]
+  // shift()
+  console.log(arr.shift()); //e
+  console.log(arr); //(4) ["d", "c", "b", "a"]
+  // unshift()
+  console.log(arr.unshift("p")); //5
+  console.log(arr); //(5) ["p", "d", "c", "b", "a"]
+  // slice()
+
+  // Object literal
+  var john = {
+    firstName: "John",
+    lastName: "Smith",
+    birthYear: 1990,
+    family: ["Jane", "Mark", "Bob", "Emily"],
+    job: "teacher",
+    isMarried: false,
+  };
+
+  console.log(john.firstName); //John
+  console.log(john["lastName"]); //Smith
+  var x = "birthYear";
+  console.log(john[x]); //1990
+
+  john.job = "designer";
+  john["isMarried"] = true;
+  console.log(
+    john
+  ); /* Object
+firstName: "John"
+lastName: "Smith"
+birthYear: 1990
+family: (4) ["Jane", "Mark", "Bob", "Emily"]
+job: "designer"
+isMarried: true
+__proto__: Object */
+
+  // new Object syntax
+  var jane = new Object();
+  jane.firstName = "Jane";
+  jane.birthYear = 1969;
+  jane["lastName"] = "Smith";
+  console.log(jane); //{firstName: "Jane", birthYear: 1969, lastName: "Smith"}
+
+  console.log(" "); //
+
+  /*****************************
+   * Objects and methods
+   */
+
+  var john = {
+    firstName: "John",
+    lastName: "Smith",
+    birthYear: 1992,
+    family: ["Jane", "Mark", "Bob", "Emily"],
+    job: "teacher",
+    isMarried: false,
+    calcAge: function () {
+      this.age = 2018 - this.birthYear;
+    },
+  };
+
+  john.calcAge();
+  console.log(john); //{firstName: "John", lastName: "Smith", birthYear: 1992, family: Array(4), job: "teacher", …}firstName: "John"lastName: "Smith"birthYear: 1992family: (4) ["Jane", "Mark", "Bob", "Emily"]job: "teacher"isMarried: falsecalcAge: ƒ ()age: 26__proto__: Object
+
+  /*****************************
+   * Loops and iteration
+   */
+
+  // for loop
+  for (var i = 1; i <= 10; i += 2) {
+    console.log(i); //1 to 19
+  }
+  console.log(" "); //
+  // i = 0, 0 < 10 true, log i to console, i++//
+  // i = 1, 1 < 10 true, log i to the console, i++//
+  //...
+  // i = 9, 9 < 10 true, log i to the console, i++//
+  // i = 10, 10 < 10 FALSE, exit the loop!
+
+  var john = ["John", "Smith", 1990, "designer", false, "blue"];
+  for (var i = 0; i < john.length; i++) {
+    console.log(john[i]); //John Smith 1990 designer false blue
+  }
+  console.log(" "); //
+  // While loop
+  var i = 0;
+  while (i < john.length) {
+    console.log(john[i]); //'John Smith 1990 designer false blue
+    i++;
+  }
+  console.log(" "); //
+
+  // continue and break statements
+  var john = ["John", "Smith", 1990, "designer", false, "blue"];
+
+  for (var i = 0; i < john.length; i++) {
+    if (typeof john[i] !== "string") continue;
+    console.log(john[i]); //John Smith  designer   blue
+  }
+  console.log(" "); //
+  for (var i = 0; i < john.length; i++) {
+    if (typeof john[i] !== "string") break;
+    console.log(john[i]); //John Smith
+  }
+  console.log(" "); //
+  // Looping backwards
+  for (var i = john.length - 1; i >= 0; i--) {
+    console.log(john[i]); // blue false designer 1990 Smith John
+  }
+
+  console.log(" "); //
   /////////////////////////////
   // Lecture: Function constructor
 
@@ -1466,132 +1591,7 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
 
   console.log(tips, finalValues); //Array(3)0: 18.5999999999999981: 9.6000000000000012: 26.8length: 3__proto__: Array(0) Array(3)0: 142.61: 57.62: 294.8length: 3__proto__: Array(0)
 
-  console.log("(32)");
-  /* SOME  POPULAR USEFULL ARRAY METHODS :--- */
-  var arr = ["a", "b", "c", "d"];
-  // push()
-  arr.push("e");
-  console.log(arr); //(5) ["a", "b", "c", "d", "e"]
-  var arr2 = ["g", "q"];
-  // concat()
-  console.log(arr.concat(arr2)); //(7) ["a", "b", "c", "d", "e", "g", "q"]
-  // join()
-  console.log(arr.join("!")); //a!b!c!d!e
-  console.log(arr); //(5) ["a", "b", "c", "d", "e"]
-  // reverse()
-  console.log(arr.reverse()); //(5) ["e", "d", "c", "b", "a"]
-  console.log(arr); //(5) ["e", "d", "c", "b", "a"]
-  // shift()
-  console.log(arr.shift()); //e
-  console.log(arr); //(4) ["d", "c", "b", "a"]
-  // unshift()
-  console.log(arr.unshift("p")); //5
-  console.log(arr); //(5) ["p", "d", "c", "b", "a"]
-  // slice()
-
-  // Object literal
-  var john = {
-    firstName: "John",
-    lastName: "Smith",
-    birthYear: 1990,
-    family: ["Jane", "Mark", "Bob", "Emily"],
-    job: "teacher",
-    isMarried: false,
-  };
-
-  console.log(john.firstName); //John
-  console.log(john["lastName"]); //Smith
-  var x = "birthYear";
-  console.log(john[x]); //1990
-
-  john.job = "designer";
-  john["isMarried"] = true;
-  console.log(
-    john
-  ); /* Object
-firstName: "John"
-lastName: "Smith"
-birthYear: 1990
-family: (4) ["Jane", "Mark", "Bob", "Emily"]
-job: "designer"
-isMarried: true
-__proto__: Object */
-
-  // new Object syntax
-  var jane = new Object();
-  jane.firstName = "Jane";
-  jane.birthYear = 1969;
-  jane["lastName"] = "Smith";
-  console.log(jane); //{firstName: "Jane", birthYear: 1969, lastName: "Smith"}
-
-  console.log(" "); //
-
-  /*****************************
-   * Objects and methods
-   */
-
-  var john = {
-    firstName: "John",
-    lastName: "Smith",
-    birthYear: 1992,
-    family: ["Jane", "Mark", "Bob", "Emily"],
-    job: "teacher",
-    isMarried: false,
-    calcAge: function () {
-      this.age = 2018 - this.birthYear;
-    },
-  };
-
-  john.calcAge();
-  console.log(john); //{firstName: "John", lastName: "Smith", birthYear: 1992, family: Array(4), job: "teacher", …}firstName: "John"lastName: "Smith"birthYear: 1992family: (4) ["Jane", "Mark", "Bob", "Emily"]job: "teacher"isMarried: falsecalcAge: ƒ ()age: 26__proto__: Object
-
-  /*****************************
-   * Loops and iteration
-   */
-
-  // for loop
-  for (var i = 1; i <= 10; i += 2) {
-    console.log(i); //1 to 19
-  }
-  console.log(" "); //
-  // i = 0, 0 < 10 true, log i to console, i++//
-  // i = 1, 1 < 10 true, log i to the console, i++//
-  //...
-  // i = 9, 9 < 10 true, log i to the console, i++//
-  // i = 10, 10 < 10 FALSE, exit the loop!
-
-  var john = ["John", "Smith", 1990, "designer", false, "blue"];
-  for (var i = 0; i < john.length; i++) {
-    console.log(john[i]); //John Smith 1990 designer false blue
-  }
-  console.log(" "); //
-  // While loop
-  var i = 0;
-  while (i < john.length) {
-    console.log(john[i]); //'John Smith 1990 designer false blue
-    i++;
-  }
-  console.log(" "); //
-
-  // continue and break statements
-  var john = ["John", "Smith", 1990, "designer", false, "blue"];
-
-  for (var i = 0; i < john.length; i++) {
-    if (typeof john[i] !== "string") continue;
-    console.log(john[i]); //John Smith  designer   blue
-  }
-  console.log(" "); //
-  for (var i = 0; i < john.length; i++) {
-    if (typeof john[i] !== "string") break;
-    console.log(john[i]); //John Smith
-  }
-  console.log(" "); //
-  // Looping backwards
-  for (var i = john.length - 1; i >= 0; i--) {
-    console.log(john[i]); // blue false designer 1990 Smith John
-  }
-
-  console.log(" "); //
+  
 
   // // EXAMINE THE DOCUMENT OBJECT
 
